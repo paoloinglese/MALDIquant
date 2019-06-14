@@ -20,6 +20,11 @@ binPeaks <- function(l, method=c("strict", "relaxed"), tolerance=0.002) {
 
   method <- match.arg(method)
 
+  ## store original mass sample number/id
+  nn <- lengths(l)
+  nonEmpty <- nn != 0L
+  samples <- rep.int(seq_along(l), nn)
+
   ## fetch all mass
   mass <- unname(.unlist(lapply(l, mass)))
 
@@ -67,12 +72,12 @@ binPeaks <- function(l, method=c("strict", "relaxed"), tolerance=0.002) {
   lIdx <- split(seq_along(mass), samples)
 
   ## create adjusted peak list
-  l <- .mapply(FUN=function(p, i) {
+  l[nonEmpty] <- .mapply(FUN=function(p, i) {
     p@mass <- mass[i]
     p@intensity <- intensities[i]
     p@snr <- snr[i]
     p
-  }, p=l, i=lIdx)
+  }, p=l[nonEmpty], i=lIdx)
 
   l
 }
