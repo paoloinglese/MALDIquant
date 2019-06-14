@@ -21,13 +21,13 @@ binPeaks <- function(l, method=c("strict", "relaxed"), tolerance=0.002) {
   method <- match.arg(method)
 
   ## fetch all mass
-  mass <- unname(.unlist(lapply(l, function(x)x@mass)))
+  mass <- unname(.unlist(lapply(l, mass)))
 
   ## fetch all intensities
-  intensities <- .unlist(lapply(l, function(x)x@intensity))
+  intensities <- .unlist(lapply(l, intensity))
 
   ## fetch all snr
-  snr <- .unlist(lapply(l, function(x)x@snr))
+  snr <- .unlist(lapply(l, snr))
 
   ## store original mass sample number/id
   samples <- rep.int(seq_along(l), lengths(l))

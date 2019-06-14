@@ -78,12 +78,6 @@ if (is.null(getGeneric("coordinates<-"))) {
 ## end of AbstractMassObject
 
 ## MassSpectrum
-if (is.null(getGeneric("approxfun"))) {
-  setGeneric("approxfun",
-             function(x, y=NULL, method="linear", yleft, yright, rule=1, f=0,
-                      ties=mean)
-               standardGeneric("approxfun"))
-}
 if (is.null(getGeneric("calibrateIntensity"))) {
   setGeneric("calibrateIntensity",
              function(object, ...) standardGeneric("calibrateIntensity"))
