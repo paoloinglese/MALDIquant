@@ -26,7 +26,7 @@ URL: http://strimmerlab.org/software/maldiquant/
 BugReports: https://github.com/sgibb/MALDIquant/issues/
 LazyLoad: yes
 VignetteBuilder: knitr
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 Collate:
     'AllClasses.R'
     'AllGenerics.R'
